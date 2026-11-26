@@ -2,7 +2,7 @@
 
 MediaPipe's `blaze_face_short_range` face detector converted to an A733 `.nb`. It was my first model on this NPU, mostly to prove that the Acuity -> `.nb` -> board path works for a MediaPipe network at all. It does, and it is fast: about 1 ms.
 
-This repo is the converted network plus the conversion scripts. **I did not write the post-processing** (anchor decoding, NMS), so you get raw outputs, not boxes. The palm detector in my [MediaPipe hands repo](https://github.com/Aseel1206/radxa-npu-mediapipe-hands) uses the same kind of SSD anchors and has working decode code you can adapt.
+This repo is the converted network plus the conversion scripts. **I did not write the post-processing** (anchor decoding, NMS), so you get raw outputs, not boxes. The palm detector in my [MediaPipe hands repo](https://github.com/Aseel1206/radxa-cubie-a7a-npu-mediapipe-hands) uses the same kind of SSD anchors and has working decode code you can adapt.
 
 ## Results
 
@@ -59,6 +59,16 @@ These are not specific to this model, so if you convert something else you will 
 ## Credits
 
 Model from [MediaPipe](https://github.com/google-ai-edge/mediapipe) (Apache-2.0).
+
+## More models on the Cubie A7A NPU
+
+Same board, same toolchain, same kind of notes:
+
+- [radxa-cubie-a7a-npu-mediapipe-hands](https://github.com/Aseel1206/radxa-cubie-a7a-npu-mediapipe-hands): MediaPipe palm detector + hand landmarks (int8, ~5 ms total)
+- [radxa-cubie-a7a-npu-deit-tiny](https://github.com/Aseel1206/radxa-cubie-a7a-npu-deit-tiny): DeiT-tiny vision transformer (14.5 ms int8)
+- [radxa-cubie-a7a-npu-depth-anything-v2](https://github.com/Aseel1206/radxa-cubie-a7a-npu-depth-anything-v2): Depth Anything V2 small depth estimation (255 ms int8)
+- [radxa-cubie-a7a-npu-llm-smollm2-135m](https://github.com/Aseel1206/radxa-cubie-a7a-npu-llm-smollm2-135m): SmolLM2-135M chat (~23 tokens/s)
+- [fast-acvnet-radxa-npu](https://github.com/Aseel1206/fast-acvnet-radxa-npu): stereo depth
 
 ## Licence
 

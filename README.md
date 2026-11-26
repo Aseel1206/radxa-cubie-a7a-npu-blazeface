@@ -60,10 +60,21 @@ These are not specific to this model, so if you convert something else you will 
 
 Model from [MediaPipe](https://github.com/google-ai-edge/mediapipe) (Apache-2.0).
 
+## Use it from Python
+
+There is now a pip-installable Python wrapper for the NPU, [cubie-npu](https://github.com/Aseel1206/cubie-npu) (not on PyPI yet, install it with `pip install git+https://github.com/Aseel1206/cubie-npu`). With it you can skip the C++ tools above:
+
+```python
+from cubie_npu import Model
+m = Model("models/blazeface_short_int16.nb")
+regressors, scores = m(rgb_128x128_uint8)                 # raw outputs, shapes (1,896,16) and (1,896,1); decoding is not included
+```
+
 ## More models on the Cubie A7A NPU
 
 Same board, same toolchain, same kind of notes:
 
+- [cubie-npu](https://github.com/Aseel1206/cubie-npu): Python bindings for the NPU
 - [radxa-cubie-a7a-npu-mediapipe-hands](https://github.com/Aseel1206/radxa-cubie-a7a-npu-mediapipe-hands): MediaPipe palm detector + hand landmarks (int8, ~5 ms total)
 - [radxa-cubie-a7a-npu-deit-tiny](https://github.com/Aseel1206/radxa-cubie-a7a-npu-deit-tiny): DeiT-tiny vision transformer (14.5 ms int8)
 - [radxa-cubie-a7a-npu-depth-anything-v2](https://github.com/Aseel1206/radxa-cubie-a7a-npu-depth-anything-v2): Depth Anything V2 small depth estimation (255 ms int8)
